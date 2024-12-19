@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Compound Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        #molecule-viewer {
+            height: 500px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chemical Compound Visualizer</h1>
+        <div class="input-section">
+            <input type="text" id="compound-input" placeholder="Enter compound name (e.g., Water)">
+            <button id="generate-btn">Generate</button>
+        </div>
+        <div class="result-section">
+            <div class="info-panel">
+                <h2>Compound Information</h2>
+                <p id="formula"></p>
+                <p id="description"></p>
+            </div>
+            <div id="molecule-viewer"></div>
+        </div>
+    </div>
+    <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
